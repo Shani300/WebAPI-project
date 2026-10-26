@@ -19,6 +19,29 @@ pass.value = user.password;
 firstName.value = user.firstName;
 lastName.value = user.lastName;
 
+
+
+async function checkPassword() {
+    const password = document.querySelector("#newPassword").value
+    if (!password)
+        return;
+    const passwordObject = {
+        PasswordValue: password
+    }
+    const response = await fetch("/api/users/checkPassword", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(passwordObject)
+    });
+    const progressValInString = await response.text()
+    const passwordProgress = document.querySelector("#prog")
+    passwordProgress.value = Number.parseInt(progressValInString)
+    passwordProgress.style.display = "flex"
+}
+
+
 async function updateUser() {
    
 
@@ -44,8 +67,10 @@ async function updateUser() {
             body: JSON.stringify(newUserDetailes)
         });
         if (!responseOurPost.ok) {
-            message.textContent = "אירעה שגיאה במהלך העידכון";
-            throw "Error Updating"
+            if (responseOurPost.text = "Weak password")
+                message.textContent = "הסיסמה חלשה מדי"
+            else message.textContent = "אירעה שגיאה במהלך העידכון";
+            return;
         }
         message.textContent = "העדכון בוצע בהצלחה";
     }

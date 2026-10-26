@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Zxcvbn;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,9 +16,15 @@ namespace WebApi.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public int Get()
         {
-            return new string[] { "", "" };
+            return 1;
+        }
+
+        [HttpPost("checkPassword")]
+        public int passwordCheck([FromBody] Password p)
+        {
+          return Zxcvbn.Core.EvaluatePassword(p.PasswordValue).Score;
         }
 
         // GET api/<UsersController>/5
@@ -59,6 +66,10 @@ namespace WebApi.Controllers
         [HttpPost("signin")]
         public ActionResult<User> PostSignIn([FromBody] User user)
         {
+            if(Zxcvbn.Core.EvaluatePassword(user.Password).Score <= 2)
+            {
+                return BadRequest("Password is too weak.");
+            }
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.UserID = numberOfUsers + 1;
             string userJson = JsonSerializer.Serialize(user);
@@ -71,8 +82,10 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(User userToUpdate)
+        public ActionResult Put(User userToUpdate)
         {
+            if (Zxcvbn.Core.EvaluatePassword(userToUpdate.Password).Score <= 2)
+                return BadRequest("Weak password");
             string textToReplace = string.Empty;
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
@@ -90,6 +103,7 @@ namespace WebApi.Controllers
                 text = text.Replace(textToReplace, JsonSerializer.Serialize(userToUpdate));
                 System.IO.File.WriteAllText(filePath, text);
             }
+            return Ok();
            
         }
 

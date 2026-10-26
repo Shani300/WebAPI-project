@@ -1,8 +1,12 @@
 wwwroot\Home.html
 wwwroot\home.js
+wwwroot\index.css
+wwwroot\userDetailes.css
 wwwroot\UserDetailes.html
 wwwroot\UserDetails.js
-E:\‏‏WebApi - עותק\WebApi\wwwroot\Home.html
-E:\‏‏WebApi - עותק\WebApi\wwwroot\home.js
-E:\‏‏WebApi - עותק\WebApi\wwwroot\UserDetailes.html
-E:\‏‏WebApi - עותק\WebApi\wwwroot\UserDetails.js
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\Home.html
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\home.js
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\index.css
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\userDetailes.css
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\UserDetailes.html
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\UserDetails.js

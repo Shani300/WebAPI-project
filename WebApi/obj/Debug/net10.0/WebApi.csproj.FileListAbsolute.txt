@@ -165,3 +165,43 @@ E:\‏‏WebApi - עותק\WebApi\obj\Debug\net10.0\ref\WebApi.dll
 E:\‏‏WebApi - עותק\WebApi\obj\Debug\net10.0\compressed\qoycjt52hy-{0}-4p9rn8d7bs-4p9rn8d7bs.gz
 E:\‏‏WebApi - עותק\WebApi\obj\Debug\net10.0\compressed\x0xipt16zc-{0}-rvubohj9ql-rvubohj9ql.gz
 E:\‏‏WebApi - עותק\WebApi\obj\Debug\net10.0\compressed\w8suzqs8xw-{0}-8acl52ypn8-8acl52ypn8.gz
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\appsettings.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.staticwebassets.runtime.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.staticwebassets.endpoints.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.exe
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.deps.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.runtimeconfig.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.dll
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\WebApi.pdb
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\bin\Debug\net10.0\zxcvbn-core.dll
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.csproj.AssemblyReference.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.AssemblyInfoInputs.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.AssemblyInfo.cs
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.sourcelink.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\scopedcss\bundle\WebApi.styles.css
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.csproj.Up2Date
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.dll
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\refint\WebApi.dll
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.pdb
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\WebApi.genruntimeconfig.cache
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\ref\WebApi.dll
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\compressed\7tluppyqjb-{0}-3a8z57p42d-3a8z57p42d.gz
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\compressed\xb0cu7ulnf-{0}-ud8bka521e-ud8bka521e.gz
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\compressed\h7hobnm64u-{0}-dqajyhjjw8-dqajyhjjw8.gz
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\compressed\x0xipt16zc-{0}-zoacumt4z6-zoacumt4z6.gz
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\compressed\qoycjt52hy-{0}-d5h28bcnv2-d5h28bcnv2.gz
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\obj\Debug\net10.0\compressed\w8suzqs8xw-{0}-xcds76e6kt-xcds76e6kt.gz

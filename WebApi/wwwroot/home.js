@@ -1,7 +1,27 @@
 ﻿const revealSighning = () => {
     const divNew = document.querySelector("#newUser")
     divNew.style.display = "flex"
-}       
+}
+
+async function checkPassword() {
+    const password = document.querySelector("#newPassword").value
+    if (!password)
+        return;
+    const passwordObject = {
+        PasswordValue:password
+    }
+    const response = await fetch("/api/users/checkPassword", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(passwordObject)
+    });
+    const progressValInString = await response.text()
+    const passwordProgress = document.querySelector("#prog")
+    passwordProgress.value = Number.parseInt(progressValInString)
+    passwordProgress.style.display="flex"
+}
 
 async function login() {
     const userNameFromDoc = document.querySelector("#userName").value;
@@ -61,7 +81,10 @@ async function signIn() {
         body: JSON.stringify(newUserDetailes)
     });
     if (!responseOurPost.ok) {
-        er2.textContent = "אירעה שגיאה במהלך הרישום";
+        if (responseOurPost.text = "Password is too weak.")
+            er2.textContent = "הסיסמה חלשה מדי"
+        else
+            er2.textContent = "אירעה שגיאה במהלך הרישום";
         return
     }
     er2.textContent = "הרישום בוצע בהצלחה, כעת תוכל להתחבר למערכת";
