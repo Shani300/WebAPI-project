@@ -67,6 +67,7 @@ async function updateUser() {
             body: JSON.stringify(newUserDetailes)
         });
         if (!responseOurPost.ok) {
+            //"=" sets the value, so this is always true. To compare, use == and read the text with await: (await responseOurPost.text()) == "..."
             if (responseOurPost.text = "Weak password")
                 message.textContent = "הסיסמה חלשה מדי"
             else message.textContent = "אירעה שגיאה במהלך העידכון";

@@ -2,6 +2,9 @@
 
 namespace WebApi
 {
+    //In C#, a two-letter abbreviation is written Id, not ID: UserId.
+    //If you rename it, users.txt still has the old names, so read it with
+    //new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
     public class User
     {
 
