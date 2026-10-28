@@ -81,6 +81,7 @@ async function signIn() {
         body: JSON.stringify(newUserDetailes)
     });
     if (!responseOurPost.ok) {
+        //"=" sets the value, so this is always true. To compare, use == and read the text with await: (await responseOurPost.text()) == "..."
         if (responseOurPost.text = "Password is too weak.")
             er2.textContent = "הסיסמה חלשה מדי"
         else
