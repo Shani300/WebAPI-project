@@ -1,4 +1,3 @@
-﻿//fix: Removed "using Microsoft.AspNetCore.Http.HttpResults;" - it was added by mistake and is not used
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Zxcvbn;
@@ -22,8 +21,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("checkPassword")]
-        //Methods are written in PascalCase: PasswordCheck. A clearer name than p would be password
-        public int passwordCheck([FromBody] Password p)
+        public int PasswordCheck([FromBody] Password p)
         {
           return Zxcvbn.Core.EvaluatePassword(p.PasswordValue).Score;
         }
@@ -47,7 +45,6 @@ namespace WebApi.Controllers
         }
 
         // POST api/<UsersController>
-        //The assignment asks a wrong login to return NoContent() (204)
         [HttpPost("login")]
         public ActionResult<User> PostLogin([FromBody] LoginUser loginUser)
         {
@@ -61,14 +58,12 @@ namespace WebApi.Controllers
                         return Ok(user);
                 }
             }
-            return NotFound();
+                return NoContent();
 
         }
-
-        //Creating a new user is usually POST api/Users, so [HttpPost] without "signin" would be clearer (and the fetch in home.js too).
-        //Also, "sign in" usually means login. For registering, "sign up" or "register" is clearer
-        [HttpPost("signin")]
-        public ActionResult<User> PostSignIn([FromBody] User user)
+        
+        [HttpPost]
+        public ActionResult<User> PostSignUp([FromBody] User user)
         {
             if(Zxcvbn.Core.EvaluatePassword(user.Password).Score <= 2)
             {
@@ -86,7 +81,6 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        //fix: Added int id, so the id from the route (api/Users/5) is used
         public ActionResult Put(int id, User userToUpdate)
         {
             if (Zxcvbn.Core.EvaluatePassword(userToUpdate.Password).Score <= 2)
@@ -98,18 +92,15 @@ namespace WebApi.Controllers
                 while ((currentUserInFile = reader.ReadLine()) != null)
                 {
                     User user = JsonSerializer.Deserialize<User>(currentUserInFile);
-                    //fix: Look for the id from the route, not the id in the body
                     if (user.UserID == id)
                     {
                         textToReplace = currentUserInFile;
-                        //fix: Found- break
                         break;
                     }
                 }
             }
             if (textToReplace != string.Empty)
             {
-                //fix: Save the user with the id from the route
                 userToUpdate.UserID = id;
                 string text = System.IO.File.ReadAllText(filePath);
                 text = text.Replace(textToReplace, JsonSerializer.Serialize(userToUpdate));
