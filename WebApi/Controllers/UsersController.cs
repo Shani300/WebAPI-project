@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Services;
 using System.Text.Json;
 using Zxcvbn;
 
@@ -12,36 +13,21 @@ namespace WebApi.Controllers
 
     public class UsersController : ControllerBase
     {
-        const string filePath = "./users.txt";
+        private UsersServices usersServices;
 
-        // GET: api/<UsersController>
-        [HttpGet]
-        public int Get()
-        {
-            return 1;
-        }
 
         [HttpPost("checkPassword")]
         public int passwordCheck([FromBody] Password p)
         {
-          return Zxcvbn.Core.EvaluatePassword(p.PasswordValue).Score;
+            return Zxcvbn.Core.EvaluatePassword(p.PasswordValue).Score;
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
         public ActionResult<User> Get(int id)
         {
-            using (StreamReader reader = System.IO.File.OpenText(filePath))
-            {
-                string? currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user =
-                    JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user.UserID == id)
-                        return Ok(user);
-                }
-            }
+            User user=usersServices.GetUserByID(id);
+            if(user!=null)  return Ok(user);
             return NotFound();
         }
 
@@ -49,31 +35,20 @@ namespace WebApi.Controllers
         [HttpPost("login")]
         public ActionResult<User> PostLogin([FromBody] LoginUser loginUser)
         {
-            using (StreamReader reader = System.IO.File.OpenText(filePath))
-            {
-                string? currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user = JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user.Email == loginUser.Email && user.Password == loginUser.Password)
-                        return Ok(user);
-                }
-            }
+            User user = usersServices.Login(loginUser);
+            if (user != null)
+                return Ok(user);
             return NotFound();
-
         }
 
         [HttpPost("signin")]
         public ActionResult<User> PostSignIn([FromBody] User user)
         {
-            if(Zxcvbn.Core.EvaluatePassword(user.Password).Score <= 2)
+            if (Zxcvbn.Core.EvaluatePassword(user.Password).Score <= 2)
             {
                 return BadRequest("Password is too weak.");
             }
-            int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
-            user.UserID = numberOfUsers + 1;
-            string userJson = JsonSerializer.Serialize(user);
-            System.IO.File.AppendAllText(filePath, userJson + Environment.NewLine);
+            usersServices.SignIn(user);
             return CreatedAtAction(nameof(Get), new { id = user.UserID }, user);
         }
 
@@ -86,25 +61,17 @@ namespace WebApi.Controllers
         {
             if (Zxcvbn.Core.EvaluatePassword(userToUpdate.Password).Score <= 2)
                 return BadRequest("Weak password");
-            string textToReplace = string.Empty;
-            using (StreamReader reader = System.IO.File.OpenText(filePath))
+            try
             {
-                string currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user = JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user.UserID == userToUpdate.UserID)
-                        textToReplace = currentUserInFile;
-                }
+                if (usersServices.Update(userToUpdate))
+                    return Ok();
             }
-            if (textToReplace != string.Empty)
+            catch (Exception ex)
             {
-                string text = System.IO.File.ReadAllText(filePath);
-                text = text.Replace(textToReplace, JsonSerializer.Serialize(userToUpdate));
-                System.IO.File.WriteAllText(filePath, text);
+                Console.WriteLine(ex.Message);
             }
-            return Ok();
-           
+            return StatusCode(500);
+
         }
 
         // DELETE api/<UsersController>/5
