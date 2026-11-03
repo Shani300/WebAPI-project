@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Services;
-using System.Text.Json;
 using Zxcvbn;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,7 +15,7 @@ namespace WebApi.Controllers
 
 
         [HttpPost("checkPassword")]
-        public int passwordCheck([FromBody] Password p)
+        public int PasswordCheck([FromBody] Password p)
         {
             return Zxcvbn.Core.EvaluatePassword(p.PasswordValue).Score;
         }
@@ -42,7 +40,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("signin")]
-        public ActionResult<User> PostSignIn([FromBody] User user)
+        public ActionResult<User> PostSignUp([FromBody] User user)
         {
             if (Zxcvbn.Core.EvaluatePassword(user.Password).Score <= 2)
             {

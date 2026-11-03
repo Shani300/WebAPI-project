@@ -1,7 +1,10 @@
-﻿namespace WebApi
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApi
 {
     public class Password
     {
-        public string PasswordValue { get; set; }
+        [Required]
+        public string PasswordValue{ get; set; }
     }
 }
