@@ -1,15 +1,11 @@
 ﻿using Repository;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
-using WebApi;
+using Entity;
 
 namespace Services
 {
     public class UsersServices
     {
-        private UsersRepository usersRepository;
+        private UsersRepository usersRepository=new UsersRepository();
 
         public User Login(LoginUser loginUser)
         {
@@ -21,7 +17,7 @@ namespace Services
 
         public User SignIn(User user)
         {
-            return usersRepository.SignIn(user);
+            return usersRepository.SignUp(user);
         }
 
         public User GetUserByID(int id)

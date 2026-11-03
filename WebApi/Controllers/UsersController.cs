@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services;
+using Entity;
 using Zxcvbn;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,13 +12,13 @@ namespace WebApi.Controllers
 
     public class UsersController : ControllerBase
     {
-        private UsersServices usersServices;
+        private UsersServices usersServices=new UsersServices();
 
 
         [HttpPost("checkPassword")]
-        public int PasswordCheck([FromBody] Password p)
+        public int PasswordCheck([FromBody] Password password)
         {
-            return Zxcvbn.Core.EvaluatePassword(p.PasswordValue).Score;
+            return Zxcvbn.Core.EvaluatePassword(password.PasswordValue).Score;
         }
 
         // GET api/<UsersController>/5

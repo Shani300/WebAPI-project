@@ -1,12 +1,12 @@
-wwwroot\home.js
-wwwroot\UserDetails.js
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\Home.html
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\userDetailes.css
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\home.js
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\UserDetails.js
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\UserDetailes.html
+C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\index.css
 wwwroot\Home.html
 wwwroot\UserDetailes.html
-wwwroot\userDetailes.css
+wwwroot\UserDetails.js
+wwwroot\home.js
 wwwroot\index.css
-C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\Home.html
-C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\UserDetails.js
-C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\home.js
-C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\index.css
-C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\userDetailes.css
-C:\Users\User\Documents\לימודים\API C#\WebAPI-project\WebApi\wwwroot\UserDetailes.html
+wwwroot\userDetailes.css

@@ -2,26 +2,6 @@
   {
     "ContainingType": "WebApi.Controllers.UsersController",
     "Method": "Get",
-    "RelativePath": "api/Users",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebApi.Controllers.UsersController",
-    "Method": "Get",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -35,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.User",
+        "Type": "Entity.User",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -55,7 +35,7 @@
     "Parameters": [
       {
         "Name": "userToUpdate",
-        "Type": "WebApi.User",
+        "Type": "Entity.User",
         "IsRequired": true
       },
       {
@@ -90,15 +70,15 @@
   },
   {
     "ContainingType": "WebApi.Controllers.UsersController",
-    "Method": "passwordCheck",
+    "Method": "PasswordCheck",
     "RelativePath": "api/Users/checkPassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "p",
-        "Type": "WebApi.Password",
+        "Name": "password",
+        "Type": "Entity.Password",
         "IsRequired": true
       }
     ],
@@ -124,13 +104,13 @@
     "Parameters": [
       {
         "Name": "loginUser",
-        "Type": "WebApi.LoginUser",
+        "Type": "Entity.LoginUser",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.User",
+        "Type": "Entity.User",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -142,7 +122,7 @@
   },
   {
     "ContainingType": "WebApi.Controllers.UsersController",
-    "Method": "PostSignIn",
+    "Method": "PostSignUp",
     "RelativePath": "api/Users/signin",
     "HttpMethod": "POST",
     "IsController": true,
@@ -150,13 +130,13 @@
     "Parameters": [
       {
         "Name": "user",
-        "Type": "WebApi.User",
+        "Type": "Entity.User",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.User",
+        "Type": "Entity.User",
         "MediaTypes": [
           "text/plain",
           "application/json",

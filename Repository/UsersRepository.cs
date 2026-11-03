@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json;
-using WebApi;
+﻿using System.Text.Json;
+using Entity;
 //using Zxcvbn;
 
 
@@ -10,7 +7,7 @@ namespace Repository
 {
     public class UsersRepository
     {
-        private const string filePath = "./users.txt";
+        private string filePath = "./users.txt";
 
         public User Login(LoginUser loginUser)
         {
@@ -27,7 +24,7 @@ namespace Repository
             return null;
         }
 
-        public User SignIn(User user)
+        public User SignUp(User user)
         {
             if (passwordValidation(user.Password)<=2)
             {

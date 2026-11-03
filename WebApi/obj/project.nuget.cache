@@ -1,20 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PIoDIl6ScBk=",
+  "dgSpecHash": "bxtKSJUgct4=",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Documents\\לימודים\\API C#\\WebAPI-project\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\zxcvbn-core\\7.0.92\\zxcvbn-core.7.0.92.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
-      "projectPath": "C:\\Users\\User\\Documents\\לימודים\\API C#\\WebAPI-project\\WebApi\\WebApi.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\User\\Documents\\לימודים\\API C#\\WebAPI-project\\WebApi\\WebApi.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }

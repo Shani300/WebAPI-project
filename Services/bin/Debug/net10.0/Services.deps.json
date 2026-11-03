@@ -8,16 +8,16 @@
     ".NETCoreApp,Version=v10.0": {
       "Services/1.0.0": {
         "dependencies": {
-          "Entities": "1.0.0",
+          "Entity": "1.0.0",
           "Repository": "1.0.0"
         },
         "runtime": {
           "Services.dll": {}
         }
       },
-      "Entities/1.0.0": {
+      "Entity/1.0.0": {
         "runtime": {
-          "Entities.dll": {
+          "Entity.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -25,7 +25,7 @@
       },
       "Repository/1.0.0": {
         "dependencies": {
-          "Entities": "1.0.0"
+          "Entity": "1.0.0"
         },
         "runtime": {
           "Repository.dll": {
@@ -42,7 +42,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Entities/1.0.0": {
+    "Entity/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
