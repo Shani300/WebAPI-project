@@ -5,7 +5,7 @@ using Entity;
 
 namespace Repository
 {
-    public class UsersRepository
+    public class UsersRepository : IUsersRepository
     {
         private string filePath = "./users.txt";
 
@@ -26,7 +26,7 @@ namespace Repository
 
         public User SignUp(User user)
         {
-            if (passwordValidation(user.Password)<=2)
+            if (passwordValidation(user.Password) <= 2)
             {
                 return null;
             }

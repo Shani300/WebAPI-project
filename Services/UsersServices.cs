@@ -3,14 +3,14 @@ using Entity;
 
 namespace Services
 {
-    public class UsersServices
+    public class UsersServices : IUsersServices
     {
-        private UsersRepository usersRepository=new UsersRepository();
+        private UsersRepository usersRepository = new UsersRepository();
 
         public User Login(LoginUser loginUser)
         {
-            User user=usersRepository.Login(loginUser);
-            if(user != null ) 
+            User user = usersRepository.Login(loginUser);
+            if (user != null)
                 return user;
             return null;
         }
