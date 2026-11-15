@@ -30,6 +30,7 @@ namespace Services
             return usersRepository.RemoveUser(userToRemove.UserID);
         }
 
+        //Why does Update return true without calling the repository? The assignment asks PUT to save the changes in the file
         public bool Update(User user)
         {
             return true;
