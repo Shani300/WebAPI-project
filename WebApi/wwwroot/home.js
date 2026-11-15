@@ -81,7 +81,8 @@ async function signIn() {
         body: JSON.stringify(newUserDetailes)
     });
     if (!responseOurPost.ok) {
-        if (responseOurPost.text = "Password is too weak.")
+        //fix: = sets the text; === compares it
+        if (responseOurPost.text === "Password is too weak.")
             er2.textContent = "הסיסמה חלשה מדי"
         else
             er2.textContent = "אירעה שגיאה במהלך הרישום";

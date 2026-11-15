@@ -67,7 +67,8 @@ async function updateUser() {
             body: JSON.stringify(newUserDetailes)
         });
         if (!responseOurPost.ok) {
-            if (responseOurPost.text = "Weak password")
+            //fix: = sets the text; === compares it
+            if (responseOurPost.text === "Weak password")
                 message.textContent = "הסיסמה חלשה מדי"
             else message.textContent = "אירעה שגיאה במהלך העידכון";
             return;

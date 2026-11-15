@@ -82,6 +82,7 @@ namespace Repository
             return -1;
         }
 
+        //In C#, method names are PascalCase: PasswordValidation.
         private static int passwordValidation(string password)
         {
             return 3;// Zxcvbn.Core.EvaluatePassword(password).Score;

@@ -37,6 +37,7 @@ namespace WebApi.Controllers
             User user = usersServices.Login(loginUser);
             if (user != null)
                 return Ok(user);
+            //Why NotFound? The assignment asks a wrong login to return 204 NoContent: which result should this return?
             return NotFound();
         }
 
