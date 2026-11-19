@@ -1,16 +1,22 @@
 ﻿using System.Text.Json;
-using Entity;
-//using Zxcvbn;
+using Microsoft.EntityFrameworkCore;
+using Entities;
 
 
 namespace Repository
 {
     public class UsersRepository : IUsersRepository
     {
+
         private string filePath = "./users.txt";
+        public UsersRepository()
+        {
+            
+        }
 
         public User Login(LoginUser loginUser)
         {
+
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
                 string? currentUserInFile;
@@ -24,12 +30,8 @@ namespace Repository
             return null;
         }
 
-        public User SignUp(User user)
+        public User AddUser(User user)
         {
-            if (passwordValidation(user.Password) <= 2)
-            {
-                return null;
-            }
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.UserID = numberOfUsers + 1;
             string userJson = JsonSerializer.Serialize(user);
@@ -82,9 +84,5 @@ namespace Repository
             return -1;
         }
 
-        private static int passwordValidation(string password)
-        {
-            return 3;// Zxcvbn.Core.EvaluatePassword(password).Score;
-        }
     }
 }

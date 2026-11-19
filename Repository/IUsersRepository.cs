@@ -6,8 +6,8 @@ namespace Repository
     {
         User GetUserByID(int id);
         User Login(LoginUser loginUser);
+        User AddUser(User user);
         int RemoveUser(int id);
-        User SignUp(User user);
         bool Update(User userToUpdate);
     }
 }

@@ -5,7 +5,12 @@ namespace Services
 {
     public class UsersServices : IUsersServices
     {
-        private UsersRepository usersRepository = new UsersRepository();
+        private IUsersRepository usersRepository;
+
+        public UsersServices(IUsersRepository usersRepository)
+        {
+            this.usersRepository = usersRepository;
+        }
 
         public User Login(LoginUser loginUser)
         {
@@ -17,7 +22,7 @@ namespace Services
 
         public User SignIn(User user)
         {
-            return usersRepository.SignUp(user);
+            return usersRepository.AddUser(user);
         }
 
         public User GetUserByID(int id)

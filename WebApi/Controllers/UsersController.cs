@@ -12,8 +12,12 @@ namespace WebApi.Controllers
 
     public class UsersController : ControllerBase
     {
-        private UsersServices usersServices=new UsersServices();
+        private IUsersServices usersServices;
 
+        public UsersController(IUsersServices usersServices)
+        {
+            this.usersServices = usersServices;
+        }
 
         [HttpPost("checkPassword")]
         public int PasswordCheck([FromBody] Password password)
