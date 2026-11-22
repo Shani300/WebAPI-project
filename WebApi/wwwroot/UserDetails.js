@@ -67,6 +67,7 @@ async function updateUser() {
             body: JSON.stringify(newUserDetailes)
         });
         if (!responseOurPost.ok) {
+            //This assigns to responseOurPost.text instead of comparing the response body. How can the page read the body to check for the weak password message?
             if (responseOurPost.text = "Weak password")
                 message.textContent = "הסיסמה חלשה מדי"
             else message.textContent = "אירעה שגיאה במהלך העידכון";

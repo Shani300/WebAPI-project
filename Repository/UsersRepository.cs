@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+//Entities isn't a namespace in this repo: the classes are in the Entity namespace, so User isn't found. Which using should this be?
 using Entities;
 
 
