@@ -47,12 +47,9 @@ namespace WebApi.Controllers
         [HttpPost("signin")]
         public ActionResult<User> PostSignUp([FromBody] User user)
         {
-            if (Zxcvbn.Core.EvaluatePassword(user.Password).Score <= 2)
-            {
-                return BadRequest("Password is too weak.");
-            }
-            usersServices.SignIn(user);
-            return CreatedAtAction(nameof(Get), new { id = user.UserID }, user);
+            if (usersServices.SignUp(user) == null)
+                return BadRequest();
+            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
 
 
@@ -60,13 +57,13 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(User userToUpdate)
+        public ActionResult Put(int id,User userToUpdate)
         {
             if (Zxcvbn.Core.EvaluatePassword(userToUpdate.Password).Score <= 2)
                 return BadRequest("Weak password");
             try
             {
-                if (usersServices.Update(userToUpdate))
+                if (usersServices.UpdateUser(id,userToUpdate)!=null)
                     return Ok();
             }
             catch (Exception ex)
@@ -81,6 +78,7 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            usersServices.RemoveUser(id);
         }
     }
 }

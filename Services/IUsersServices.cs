@@ -6,8 +6,8 @@ namespace Services
     {
         User GetUserByID(int id);
         User Login(LoginUser loginUser);
-        int RemoveUser(User userToRemove);
-        User SignIn(User user);
-        bool Update(User user);
+        int RemoveUser(int id);
+        Task<User> SignUp(User user);
+        Task<User> UpdateUser(int id, User user);
     }
 }

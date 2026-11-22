@@ -6,10 +6,12 @@ namespace Services
     public class UsersServices : IUsersServices
     {
         private IUsersRepository usersRepository;
+        private IPasswordValidity passwordValidity;
 
         public UsersServices(IUsersRepository usersRepository)
         {
             this.usersRepository = usersRepository;
+            this.passwordValidity = new PasswordStrength();
         }
 
         public User Login(LoginUser loginUser)
@@ -20,9 +22,11 @@ namespace Services
             return null;
         }
 
-        public User SignIn(User user)
+        public async Task<User> SignUp(User user)
         {
-            return usersRepository.AddUser(user);
+            if (passwordValidity.GetPasswordStrength(user.Password) <= 2)
+                return null;
+            return await usersRepository.AddUser(user);
         }
 
         public User GetUserByID(int id)
@@ -30,14 +34,14 @@ namespace Services
             return usersRepository.GetUserByID(id);
         }
 
-        public int RemoveUser(User userToRemove)
+        public int RemoveUser(int id)
         {
-            return usersRepository.RemoveUser(userToRemove.UserID);
+            return usersRepository.RemoveUser(id);
         }
 
-        public bool Update(User user)
+        public async Task<User> UpdateUser(int id, User user)
         {
-            return true;
+            return await usersRepository.UpdateUser(id, user);
         }
     }
 }
