@@ -52,6 +52,7 @@ async function login() {
     console.log(user)
     sessionStorage.setItem("user", JSON.stringify(user))
 
+    //The page file name is misspelled (UserDetailes.html). Rename it to UserDetails.html and change this link too
     window.location.href = "UserDetailes.html"
 
 }
@@ -81,6 +82,7 @@ async function signIn() {
         body: JSON.stringify(newUserDetailes)
     });
     if (!responseOurPost.ok) {
+        //This assigns to responseOurPost.text instead of comparing the response body. How can the page read the body to check for the weak password message?
         if (responseOurPost.text = "Password is too weak.")
             er2.textContent = "הסיסמה חלשה מדי"
         else

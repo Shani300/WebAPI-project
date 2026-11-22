@@ -7,6 +7,7 @@ namespace Services
     {
         private IUsersRepository usersRepository;
 
+        //Who gives the service an IUsersRepository? The assignment asks to register it in Program.cs with AddScoped, using the interface as the service type
         public UsersServices(IUsersRepository usersRepository)
         {
             this.usersRepository = usersRepository;
@@ -37,6 +38,7 @@ namespace Services
 
         public bool Update(User user)
         {
+            //Update doesn't call the repository, so the user is never saved. Should it call usersRepository.Update?
             return true;
         }
     }
