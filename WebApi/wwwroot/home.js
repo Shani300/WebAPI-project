@@ -17,6 +17,7 @@ async function checkPassword() {
         },
         body: JSON.stringify(passwordObject)
     });
+    if (!response.ok) console.log("Error:(")
     const progressValInString = await response.text()
     const passwordProgress = document.querySelector("#prog")
     passwordProgress.value = Number.parseInt(progressValInString)
@@ -55,7 +56,7 @@ async function login() {
     window.location.href = "UserDetailes.html"
 
 }
-async function signIn() {
+async function signUp() {
     const userN = document.querySelector("#newUserName").value;
     const pass = document.querySelector("#newPassword").value;
     const firstName = document.querySelector("#firstName").value;
@@ -73,7 +74,7 @@ async function signIn() {
         FirstName: firstName,
         LastName: lastName,
     }
-    const responseOurPost = await fetch("/api/users/signin", {
+    const responseOurPost = await fetch("/api/users/signUp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

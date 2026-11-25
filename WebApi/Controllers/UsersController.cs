@@ -12,11 +12,12 @@ namespace WebApi.Controllers
 
     public class UsersController : ControllerBase
     {
-        private IUsersServices usersServices;
+        private readonly IUsersServices  _usersServices;
+        //private IPasswordValidity _passwordService;
 
-        public UsersController(IUsersServices usersServices)
+        public UsersController(IUsersServices  _usersServices)
         {
-            this.usersServices = usersServices;
+            this._usersServices =  _usersServices;
         }
 
         [HttpPost("checkPassword")]
@@ -27,27 +28,28 @@ namespace WebApi.Controllers
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+        public async Task<ActionResult<User>> Get(int id)
         {
-            User user=usersServices.GetUserByID(id);
+            User user= await _usersServices.GetUserByID(id);
             if(user!=null)  return Ok(user);
             return NotFound();
         }
 
         // POST api/<UsersController>
         [HttpPost("login")]
-        public ActionResult<User> PostLogin([FromBody] LoginUser loginUser)
+        public async Task<ActionResult<User>> PostLogin([FromBody] LoginUser loginUser)
         {
-            User user = usersServices.Login(loginUser);
+            User user = await _usersServices.Login(loginUser);
             if (user != null)
                 return Ok(user);
             return NotFound();
         }
 
-        [HttpPost("signin")]
-        public ActionResult<User> PostSignUp([FromBody] User user)
+        [HttpPost("signUp")]
+        public async Task<ActionResult<User>> Post([FromBody] User user)
         {
-            if (usersServices.SignUp(user) == null)
+            user=await  _usersServices.SignUp(user);
+            if (user==null)
                 return BadRequest();
             return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
@@ -63,7 +65,7 @@ namespace WebApi.Controllers
                 return BadRequest("Weak password");
             try
             {
-                if (usersServices.UpdateUser(id,userToUpdate)!=null)
+                if (_usersServices.UpdateUser(id,userToUpdate)!=null)
                     return Ok();
             }
             catch (Exception ex)
@@ -78,7 +80,9 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            usersServices.RemoveUser(id);
+             _usersServices.RemoveUser(id);
         }
+
+
     }
 }

@@ -14,9 +14,9 @@ namespace Services
             this.passwordValidity = new PasswordStrength();
         }
 
-        public User Login(LoginUser loginUser)
+        public async Task<User> Login(LoginUser loginUser)
         {
-            User user = usersRepository.Login(loginUser);
+            User user =await usersRepository.Login(loginUser);
             if (user != null)
                 return user;
             return null;
@@ -29,19 +29,20 @@ namespace Services
             return await usersRepository.AddUser(user);
         }
 
-        public User GetUserByID(int id)
+        public async Task<User> GetUserByID(int id)
         {
-            return usersRepository.GetUserByID(id);
+            return await usersRepository.GetUserByID(id);
         }
 
-        public int RemoveUser(int id)
-        {
-            return usersRepository.RemoveUser(id);
-        }
 
         public async Task<User> UpdateUser(int id, User user)
         {
             return await usersRepository.UpdateUser(id, user);
+        }
+
+        public int RemoveUser(int id)
+        {
+            return usersRepository.RemoveUserAsync(id);
         }
     }
 }

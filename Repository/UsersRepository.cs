@@ -14,9 +14,9 @@ namespace Repository
             _dbContext = myShopContext;
         }
 
-        public User Login(LoginUser loginUser)
+        public async Task<User> Login(LoginUser loginUser)
         {
-            User user = _dbContext.Users.ToList().Find(u => u.Email == loginUser.Email && u.Password == loginUser.Password);
+            User user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == loginUser.Email && u.Password == loginUser.Password);
             return user;
         }
 
@@ -32,24 +32,29 @@ namespace Repository
             User user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
             if (user == null) return null;
             _dbContext.Entry(user).CurrentValues.SetValues(userToUpdate);
-            _dbContext.SaveChangesAsync().Wait();
-            return user;//???????
-        }
-
-
-        public User GetUserByID(int id)
-        {
-            User user = _dbContext.Users.ToList().Find(u => u.Id == id);
+            await _dbContext.SaveChangesAsync();
             return user;
         }
 
-        public int RemoveUser(int id)
+
+        public async Task<User> GetUserByID(int id)
         {
-            User userToRemove = GetUserByID(id);
-            _dbContext.Remove(userToRemove);
-            _dbContext.SaveChanges();
-            return userToRemove.Id;
+            User user = await _dbContext.Users.FindAsync(id);
+            return user;
         }
+
+        public int RemoveUserAsync(int id)
+        {
+            return -1;
+        }
+
+        //public async Task<int> RemoveUserAsync(int id)
+        //{
+        //    User userToRemove = await GetUserByID(id);
+        //    _dbContext.Remove(userToRemove);
+        //    _dbContext.SaveChanges();
+        //    return userToRemove.Id;
+        //}
 
     }
 }

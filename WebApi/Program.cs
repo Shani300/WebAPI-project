@@ -8,15 +8,31 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUsersRepository, UsersRepository>();
+builder.Services.AddTransient<IProductsRepository, ProductsRepository>();
+builder.Services.AddTransient<IProductsServices, ProductsServices>();
 builder.Services.AddTransient<IUsersServices, UsersServices>();
 builder.Services.AddTransient<IPasswordValidity, PasswordStrength>();
 
+//builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
+//builder.Services.AddOpenApi();
+
+
 builder.Services.AddDbContext<MyShopContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString
-        ("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyShop;Integrated Security=True;Trust Server Certificate=TrueData Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyShop;Integrated Security=True;Trust Server Certificate=True")),ServiceLifetime.Transient);
+        ("ShopConnectionString")), ServiceLifetime.Transient);
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//    app.MapOpenApi();
+//    app.UseSwaggerUI(options =>
+//    {
+//        options.SwaggerEndpoint("/openapi/v1.json", "v1");
+//    });
+//}
 
 app.UseHttpsRedirection();
 
